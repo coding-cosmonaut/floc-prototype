@@ -1,9 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
-  <body></body>
+  <body>
+    <main>
+      <nav class="navbar">
+        <ul>
+          <li class="logo"></li>
+          <div class="navbar-right">
+            <li>About</li>
+            <li>Sign Up</li>
+          </div>
+          <div class="hamburger-mobile">
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+        </ul>
+      </nav>
+    </main>
+
+    <nav class="mobile-nav">
+      <ul>
+        <li>About</li>
+        <li>Sign Up</li>
+      </ul>
+    </nav>
+  </body>
 </html>

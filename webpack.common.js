@@ -7,7 +7,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "New Project",
+      title: "Floc",
       template: "src/index.html",
     }),
   ],
