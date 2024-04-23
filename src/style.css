@@ -31,7 +31,7 @@ body {
   position: relative;
   height: 100dvh;
   z-index: -15;
-  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 button {
@@ -152,6 +152,21 @@ main {
   grid-template: 1fr / 1fr 1fr;
 }
 
+#gradient-canvas {
+  /* background-color: var(--main-purple); */
+  position: absolute;
+  z-index: -100;
+  width: 200%;
+  left: -50%;
+  top: -600px;
+  height: 970px;
+  transform: rotate(-10deg);
+  --gradient-color-1: #3d348b;
+  --gradient-color-2: #5a4fbd;
+  --gradient-color-3: #f6b819;
+  --gradient-color-4: #ffaa1d;
+}
+
 .wrapper-left-column {
   align-self: center;
   padding-left: var(--spacing-md);
@@ -159,18 +174,18 @@ main {
 }
 
 .top-container,
-.bottom-container {
+.bottom-container,
+.last-container {
   overflow: hidden;
 }
 
 .top-h1,
-.bottom-h1 {
+.bottom-h1,
+.last-container {
   line-height: 12.5rem;
-  /* line-height: 15vh; */
 }
 
 .top-h1 {
-  transform: translateY(250px);
   font-weight: 100;
 }
 
@@ -178,20 +193,13 @@ main {
   transform: translateY(-250px);
 }
 
-.bottom-show {
-  transform: translateY(0px);
-  transition: transform 1s ease;
-}
-
-.top-show {
-  transform: translateY(0px);
-  transition: transform 1s ease;
+.last-h2 {
+  transform: translateY(-250px);
 }
 
 /*SECOND COLUMN*/
 .wrapper-right-column {
   align-self: center;
-  height: 50%;
 }
 
 .wrapper-right-column .right-container {
@@ -324,6 +332,44 @@ main {
   animation-delay: 0s;
 }
 
+.slideUp {
+  animation-name: slideUp;
+  animation-timing-function: ease;
+  animation-duration: 1.3s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-delay: 0s;
+}
+
+.slideUpDelayed {
+  animation-name: slideUp;
+  animation-timing-function: ease;
+  animation-duration: 1.3s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+.slideDown {
+  animation-name: slideDown;
+  animation-timing-function: ease;
+  animation-duration: 1.3s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+  animation-timing-function: ease;
+  animation-duration: 1.3s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-delay: 0.5s;
+}
+
 @keyframes fadeInAnimation {
   0% {
     opacity: 0;
@@ -332,5 +378,32 @@ main {
   100% {
     opacity: 1;
     transform: inherit;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(250px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-250px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }
