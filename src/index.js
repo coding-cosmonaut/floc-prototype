@@ -9,7 +9,7 @@ import {
   leftColumn,
 } from "./DOM";
 import toggle from "./mobileNavigation";
-import render from "./homepage";
+import { cycle, render } from "./homepage";
 import gradient from "./gradient";
 
 hamburger.addEventListener("click", () => {
@@ -18,13 +18,17 @@ hamburger.addEventListener("click", () => {
   toggle(mobileNav, "mobile-nav-open");
 });
 
-
 window.addEventListener("load", () => {
   toggle(logo, "show-logo");
-  render()
+  render();
   gradient.initGradient("#gradient-canvas");
+  setInterval(() => {
+    cycle(document.querySelector(".bottom-container"));
+  }, 3600);
+  // setTimeout(() => {
+  //   cycle(document.querySelector(".bottom-container"));
+  // }, 3600)
 });
-
 
 // window.addEventListener("load", () => {
 //   toggle(topText, "top-show");

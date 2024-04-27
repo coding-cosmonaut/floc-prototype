@@ -9,4 +9,4 @@ const rightContainer = document.querySelector(".right-container");
 const leftColumn = document.querySelector(".wrapper-left-column");
 const rightColumn = document.querySelector(".wrapper-right-column");
 
-export { hamburger, mobileNav, bottomText, topText, logo, rightContainer, leftColumn };
+export { hamburger, mobileNav, bottomText, topText, logo, rightContainer, leftColumn, rightColumn };
