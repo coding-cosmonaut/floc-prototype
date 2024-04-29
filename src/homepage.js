@@ -79,7 +79,7 @@ const rightHomepage = function constructRightColumnHomepage() {
 
   // SIGN UP
   signUpButton.setAttribute("class", "sign-up-bttn");
-  signUpButton.textContent = "Sign Up!";
+  signUpButton.textContent = "Sign-Up!";
   // SIGN UP
 
   // LEARN MORE
@@ -88,7 +88,7 @@ const rightHomepage = function constructRightColumnHomepage() {
   // LEARN MORE
 
   // CONTAINER
-  containerWrapper.setAttribute("class", "right-container");
+  containerWrapper.setAttribute("class", "right-container slide-up-animation");
   // CONTAINER
 
   // BUTTON CONTAINER
@@ -105,7 +105,5 @@ const render = function renderHomepage(left, right) {
   leftHomepage();
   rightHomepage();
 };
-
-// font-size: clamp(2rem, calc(8vw + 1rem), 10rem);
 
 export { render, cycle };

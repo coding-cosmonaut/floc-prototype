@@ -25,16 +25,4 @@ window.addEventListener("load", () => {
   setInterval(() => {
     cycle(document.querySelector(".bottom-container"));
   }, 3600);
-  // setTimeout(() => {
-  //   cycle(document.querySelector(".bottom-container"));
-  // }, 3600)
 });
-
-// window.addEventListener("load", () => {
-//   toggle(topText, "top-show");
-//   toggle(rightContainer, "slide-up-animation");
-//   setTimeout(() => {
-//     toggle(bottomText, "bottom-show");
-//     toggle(logo, "show-logo");
-//   }, 500);
-// });
