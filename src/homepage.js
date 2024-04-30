@@ -1,11 +1,11 @@
 // RENDER HOMEPAGE
-import { leftColumn, rightColumn } from "./DOM";
+import { create, mainContent } from "./DOM";
+import gradient from "./gradient";
+import toggle from "./mobileNavigation";
 
-const create = function createDivElements(element) {
-  return document.createElement(element);
-};
+let timerID = "";
 
-const cycle = function cycleWords(words) {
+const cycle = function cycleWordsOnHomepage(words) {
   const nodelistOfWords = words.childNodes;
   for (let i = 0; i < nodelistOfWords.length; i++) {
     if (nodelistOfWords[i].getAttribute("data-isActive") === "true") {
@@ -30,16 +30,29 @@ const leftHomepage = function constructLeftColumnHomepage() {
   const canvasEl = create("canvas");
   canvasEl.setAttribute("id", "gradient-canvas");
 
+  // ELEMENTS
+  const wrapperLeft = create("section");
   const topDiv = create("div");
-  topDiv.setAttribute("class", "top-container");
   const bottomDiv = create("div");
-  bottomDiv.setAttribute("class", "bottom-container");
   const lastDivOnLeftColumn = create("div");
+  // ELEMENTS
+
+  // CONTAINER LEFT
+  wrapperLeft.setAttribute("class", "wrapper-left-column");
+  // CONTAINER LEFT
+
+  // TOP H1
+  topDiv.setAttribute("class", "top-container");
+  // TOP H1
+
+  bottomDiv.setAttribute("class", "bottom-container");
+
   lastDivOnLeftColumn.setAttribute("class", "last-container slideUpDelayed");
 
   const topH1 = create("h1");
   topH1.setAttribute("class", "top-h1 slideUp");
   topH1.textContent = "Create";
+
   const bottomH1 = create("h1");
   bottomH1.setAttribute("data-isActive", "true");
   bottomH1.setAttribute("class", "bottom-h1 slideDownFurther");
@@ -52,11 +65,13 @@ const leftHomepage = function constructLeftColumnHomepage() {
   topDiv.append(topH1);
   bottomDiv.append(bottomH1, secondH2);
 
-  leftColumn.append(canvasEl, topDiv, bottomDiv, lastDivOnLeftColumn);
+  wrapperLeft.append(canvasEl, topDiv, bottomDiv, lastDivOnLeftColumn);
+  mainContent.append(wrapperLeft);
 };
 
 const rightHomepage = function constructRightColumnHomepage() {
   // ELEMENTS
+  const wrapperRight = create("section");
   const heading = create("h2");
   const paragraphDescription = create("p");
   const signUpButton = create("button");
@@ -64,6 +79,10 @@ const rightHomepage = function constructRightColumnHomepage() {
   const containerWrapper = create("div");
   const buttonContainer = create("div");
   // ELEMENTS
+
+  // CONTAINER RIGHT
+  wrapperRight.setAttribute("class", "wrapper-right-column");
+  // CONTAINER RIGHT
 
   // HEADING
   heading.setAttribute("class", "right-heading");
@@ -98,12 +117,32 @@ const rightHomepage = function constructRightColumnHomepage() {
   buttonContainer.append(signUpButton, learnMoreButton);
 
   containerWrapper.append(heading, paragraphDescription, buttonContainer);
-  rightColumn.append(containerWrapper);
+  wrapperRight.append(containerWrapper);
+  mainContent.append(wrapperRight);
 };
 
-const render = function renderHomepage(left, right) {
+const timer = function createIntervalForCycleWords() {
+  timerID = setInterval(() => {
+    cycle(document.querySelector(".bottom-container"));
+  }, 3400);
+};
+
+const check = function checkForLogoClass() {
+  const logoText = document.querySelector(".logo-word");
+  if (logoText.classList.contains("show-logo")) {
+    return true;
+  }
+  return false;
+};
+
+const render = function renderHomepage() {
   leftHomepage();
   rightHomepage();
+  if (!check()) {
+    toggle(document.querySelector(".logo-word"), "show-logo");
+  }
+  gradient.initGradient("#gradient-canvas");
+  timer();
 };
 
-export { render, cycle };
+export { render, timerID };

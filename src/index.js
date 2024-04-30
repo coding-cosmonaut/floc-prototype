@@ -1,16 +1,7 @@
 import "./style.css";
-import {
-  hamburger,
-  mobileNav,
-  bottomText,
-  logo,
-  topText,
-  rightContainer,
-  leftColumn,
-} from "./DOM";
+import { hamburger, mobileNav } from "./DOM";
 import toggle from "./mobileNavigation";
-import { cycle, render } from "./homepage";
-import gradient from "./gradient";
+import getContent from "./pages";
 
 hamburger.addEventListener("click", () => {
   toggle(hamburger.firstElementChild, "line1");
@@ -18,11 +9,10 @@ hamburger.addEventListener("click", () => {
   toggle(mobileNav, "mobile-nav-open");
 });
 
-window.addEventListener("load", () => {
-  toggle(logo, "show-logo");
-  render();
-  gradient.initGradient("#gradient-canvas");
-  setInterval(() => {
-    cycle(document.querySelector(".bottom-container"));
-  }, 3600);
+// LOAD INITIAL HOMEPAGE
+window.addEventListener("load", getContent);
+// LOAD INITIAL HOMEPAGE
+
+window.addEventListener("hashchange", (e) => {
+  getContent(e, location.hash.substring(1));
 });

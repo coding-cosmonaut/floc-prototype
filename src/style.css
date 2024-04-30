@@ -22,6 +22,11 @@ li:hover {
   cursor: pointer;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 main {
   height: calc(100dvh - 132px);
 }
@@ -95,7 +100,7 @@ button:hover {
   transition: transform 1s ease;
 }
 
-.navbar-right > li {
+.navbar-right > a > li {
   padding: var(--spacing-sm);
   font-size: 2.4rem;
   font-weight: bold;
@@ -128,12 +133,11 @@ button:hover {
   transition: transform 250ms ease;
   height: 110%;
   z-index: 10;
-  left: -100%;
+  left: -111%;
   top: -5px;
-  width: 100%;
+  width: 110%;
   justify-content: center;
   color: white;
-  background-color: hsl(235.88, 46.36%, 56.86%);
   background-color: var(--main-purple);
 }
 
@@ -356,6 +360,11 @@ main {
   .navbar {
     padding: var(--spacing-sm) var(--spacing-sm) 0;
   }
+  .top-h1,
+  .bottom-h1,
+  .second-h2 {
+    line-height: 5rem;
+  }
 }
 
 @media only screen and (max-width: 534px) {
@@ -372,6 +381,11 @@ main {
   .top-h1,
   .bottom-h1 {
     line-height: 6rem;
+  }
+  .top-h1,
+  .bottom-h1,
+  .second-h2 {
+    line-height: 4.5rem;
   }
 }
 
