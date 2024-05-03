@@ -52,6 +52,7 @@ const rightSignUp = function leftSignUpColumnContent() {
   const formContainer = create("div");
   const headingH1 = create("h1");
   const submitBttn = create("button");
+  const buttonContainer = create("div");
 
   const inputContaineOne = createInput("firstName", "text", "first name");
   const inputContaineTwo = createInput("lastName", "text", "last name");
@@ -71,16 +72,18 @@ const rightSignUp = function leftSignUpColumnContent() {
 
   // BUTTON
   submitBttn.textContent = "Sign-up!";
+  submitBttn.setAttribute("type", "submit");
   // BUTTON
+
+  buttonContainer.append(submitBttn);
 
   formContainer.append(
     headingH1,
     inputContaineOne,
     inputContaineTwo,
-    inputContaineThree,
-    submitBttn
+    inputContaineThree
   );
-  form.append(formContainer);
+  form.append(formContainer, buttonContainer);
 
   wrapperRight.append(form);
   mainContent.appendChild(wrapperRight);

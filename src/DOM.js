@@ -12,6 +12,7 @@ const create = function createDivElements(element) {
   return document.createElement(element);
 };
 
+
 export {
   hamburger,
   mobileNav,
@@ -20,5 +21,5 @@ export {
 //   logo,
 //   rightContainer,
   create,
-  mainContent,
+    mainContent,
 };

@@ -16,3 +16,10 @@ window.addEventListener("load", getContent);
 window.addEventListener("hashchange", (e) => {
   getContent(e, location.hash.substring(1));
 });
+
+setTimeout(() => {
+  document.querySelector('.sign-up-bttn').addEventListener("click", (e) => {
+    console.log("clicked");
+    getContent(e, "sign-up");
+  });
+},1000)
