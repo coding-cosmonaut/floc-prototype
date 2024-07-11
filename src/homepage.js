@@ -2,6 +2,7 @@
 import { create, mainContent } from "./DOM";
 import gradient from "./gradient";
 import toggle from "./mobileNavigation";
+import getContent from "./pages";
 
 let timerID = "";
 
@@ -99,6 +100,9 @@ const rightHomepage = function constructRightColumnHomepage() {
   // SIGN UP
   signUpButton.setAttribute("class", "sign-up-bttn");
   signUpButton.textContent = "Sign-Up!";
+  signUpButton.addEventListener("click", (e) => {
+    getContent(e, "sign-up");
+  });
   // SIGN UP
 
   // LEARN MORE

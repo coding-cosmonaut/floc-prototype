@@ -95,3 +95,5 @@ const renderSignUp = function renderSignUpPage() {
 };
 
 export default renderSignUp;
+
+// rashidbabaev@hotmail.red

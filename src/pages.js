@@ -8,7 +8,6 @@ const clear = function clearBothColumnsAndInterval() {
 };
 
 function getContent(e, fragmentId) {
-  console.log(fragmentId);
   if (fragmentId) {
     clear();
   }
